@@ -3,7 +3,6 @@ import 'package:flutter_testing_sample/main.dart';
 import 'package:test/test.dart';
 
 void main() {
-
   /*
   UNIT TEST FORMAT
   test('Test Description text', () {

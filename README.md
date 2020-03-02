@@ -1,6 +1,6 @@
 # flutter_testing_sample
 
-A new Flutter project.
+A Flutter Sample App demonstrating Testing (Unit, Widget and Integration Tests) and its procedure for your own projects and applications.
 
 ## Getting Started
 

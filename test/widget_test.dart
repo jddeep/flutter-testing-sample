@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -6,13 +5,12 @@ import 'package:flutter_testing_sample/main.dart';
 
 void main() {
   testWidgets('Widget Testing the Calculator', (WidgetTester tester) async {
-    
     // Pumping out our application widget for testing.
     await tester.pumpWidget(MyApp());
 
     // Widget Testing for the title of the app in App bar.
     final titleFinder = find.text('Calculator Tester');
-    
+
     expect(titleFinder, findsOneWidget);
 
     // Finding Widget for entering Number one.
@@ -46,6 +44,5 @@ void main() {
 
     // After calculating there should be two equal symbols on screen(one for the button)
     expect(find.text('='), findsNWidgets(2));
-
   });
 }

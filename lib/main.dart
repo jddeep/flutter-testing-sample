@@ -9,7 +9,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Calculator Tester',
-      theme: ThemeData(brightness: Brightness.dark, primaryColor: Colors.blue, accentColor: Colors.white),
+      theme: ThemeData(
+          brightness: Brightness.dark,
+          primaryColor: Colors.blue,
+          accentColor: Colors.white),
       home: MyHomePage(title: 'Calculator Tester'),
     );
   }
@@ -58,13 +61,14 @@ class _MyHomePageState extends State<MyHomePage> {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
         textColor: Colors.black,
         color: Colors.grey[100],
+        key: Key(operation),
         onPressed: () {
           setState(() {
             numberoneController.text = Calculator.calculate(
-              operation, numberoneController.text, numbertwoController.text);
-          numbertwoController.text = '';
-          print(numberoneController.text);
-          _operator = numberoneController.text.isNotEmpty?'=':'';
+                operation, numberoneController.text, numbertwoController.text);
+            numbertwoController.text = '';
+            print(numberoneController.text);
+            _operator = numberoneController.text.isNotEmpty ? '=' : '';
           });
         });
   }
@@ -85,22 +89,28 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 width: 80.0,
                 child: Tooltip(
-                  message: 'Number one',
-                                  child: TextField(
+                  message: 'Number two',
+                  child: TextField(
                     keyboardType: TextInputType.number,
                     maxLength: 8,
+                    key: Key('numbertwo'),
                     controller: numbertwoController,
                   ),
                 ),
               ),
-              Container(child: Text(_operator)),
+              Container(
+                  child: Text(
+                _operator,
+                key: Key('operator'),
+              )),
               Container(
                 width: 80.0,
                 child: Tooltip(
-                  message: 'Number two',
-                                  child: TextField(
+                  message: 'Number one',
+                  child: TextField(
                     keyboardType: TextInputType.number,
                     maxLength: 8,
+                    key: Key('numberone'),
                     controller: numberoneController,
                   ),
                 ),
