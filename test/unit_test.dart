@@ -1,4 +1,3 @@
-import 'package:flutter_test/flutter_test.dart' as prefix0;
 import 'package:flutter_testing_sample/main.dart';
 import 'package:test/test.dart';
 

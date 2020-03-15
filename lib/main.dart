@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialButton(
         height: 100.0,
         child: Text(operation,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+            style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50.0)),
         textColor: Colors.black,
         color: Colors.grey[100],
         key: Key(operation),
@@ -76,68 +76,95 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Container(
-              child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Container(
-                width: 80.0,
-                child: Tooltip(
-                  message: 'Number two',
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    maxLength: 8,
-                    key: Key('numbertwo'),
-                    controller: numbertwoController,
+          Expanded(
+            flex: 3,
+            child: Container(
+                child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Container(
+                  width: 80.0,
+                  child: Tooltip(
+                    message: 'Number two',
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      maxLength: 8,
+                      key: Key('numbertwo'),
+                      controller: numbertwoController,
+                    ),
                   ),
                 ),
+                Container(
+                    child: Text(
+                  _operator,
+                  key: Key('operator'),
+                )),
+                Container(
+                  width: 80.0,
+                  child: Tooltip(
+                    message: 'Number one',
+                    child: TextField(
+                      keyboardType: TextInputType.number,
+                      maxLength: 8,
+                      key: Key('numberone'),
+                      controller: numberoneController,
+                    ),
+                  ),
+                )
+              ],
+            )),
+          ),
+          Expanded(
+            flex: 7,
+            child: AspectRatio(
+              aspectRatio: 1.0,
+              child: new GridView.count(
+                crossAxisCount: 3,
+                childAspectRatio: 1.0,
+                padding: const EdgeInsets.all(4.0),
+                mainAxisSpacing: 4.0,
+                crossAxisSpacing: 4.0,
+                children: <String>[
+                  // @formatter:off
+                  '+', '-', '*',
+                  '/', '^', '=',
+                  // @formatter:on
+                ].map((key) {
+                  return new GridTile(
+                    child: _button(key),
+                  );
+                }).toList(),
               ),
-              Container(
-                  child: Text(
-                _operator,
-                key: Key('operator'),
-              )),
-              Container(
-                width: 80.0,
-                child: Tooltip(
-                  message: 'Number one',
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    maxLength: 8,
-                    key: Key('numberone'),
-                    controller: numberoneController,
-                  ),
-                ),
-              )
-            ],
-          )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              _button('+'),
-              _button('-'),
-            ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              _button('*'),
-              _button('/'),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              _button('^'),
-              _button('='),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: <Widget>[
+          //     _button('+'),
+          //     _button('-'),
+          //   ],
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: <Widget>[
+          //     _button('*'),
+          //     _button('/'),
+          //   ],
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: <Widget>[
+          //     _button('^'),
+          //     _button('='),
+          //   ],
+          // ),
         ],
       ),
     );
