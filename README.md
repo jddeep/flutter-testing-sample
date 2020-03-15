@@ -2,7 +2,7 @@
 
 A Flutter Sample App demonstrating Testing (Unit, Widget and Integration Tests) and its procedure for your own projects and applications.
 
-<img src="/images/unittests.png" width = 300/> <img src="/images/widgettest.png" width=300 /> <img src="drivertests.png" width=300/> <img src="/images/tests.png" width=300 />
+<img src="/images/unittests.png" width = 300/> <img src="/images/widgettest.png" width=300 /> <img src="images/drivertests.png" width=300/> <img src="/images/tests.png" width=300 />
 
 ## Getting Started
 
